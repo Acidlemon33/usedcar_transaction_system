@@ -89,4 +89,12 @@ public class SaleInfoController {
     public Result<List<SaleInfoPO>> getAllSales() {
         return Result.success(saleInfoService.list());
     }
+
+    /**
+     * 获取指定卖家发布的出售列表
+     */
+    @GetMapping("/my")
+    public Result<List<SaleInfoPO>> getMySales(@RequestParam Long salerId) {
+        return Result.success(saleInfoService.getBySalerId(salerId));
+    }
 }

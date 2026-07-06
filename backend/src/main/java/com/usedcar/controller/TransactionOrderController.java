@@ -1,5 +1,6 @@
 package com.usedcar.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.usedcar.common.Result;
 import com.usedcar.po.TransactionOrderPO;
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
  * 交易订单控制器
  */
 @RestController
-@RequestMapping("/transaction_order") // 建议改为下划线命名
+@RequestMapping("/transaction_order")
 public class TransactionOrderController {
 
     @Autowired
@@ -25,6 +26,17 @@ public class TransactionOrderController {
     @GetMapping("/{orderId}")
     public Result<TransactionOrderPO> getById(@PathVariable Long orderId) {
         return Result.success(transactionOrderService.getById(orderId));
+    }
+
+    /**
+     * 通过订单编号(orderReference)查询
+     */
+    @GetMapping("/byReference")
+    public Result<TransactionOrderPO> getByReference(@RequestParam String ref) {
+        LambdaQueryWrapper<TransactionOrderPO> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(TransactionOrderPO::getOrderReference, ref);
+        TransactionOrderPO order = transactionOrderService.getOne(wrapper, false);
+        return Result.success(order);
     }
 
     /**
@@ -43,23 +55,27 @@ public class TransactionOrderController {
     /**
      * 新增订单（下单功能）
      * 自动处理业务逻辑：生成编号、初始状态、时间戳
+     * 返回完整订单对象（含自增ID）
      */
     @PostMapping
-    public Result<Boolean> save(@RequestBody TransactionOrderPO order) {
-        // 1. 生成唯一订单编号：ORD + 当前时间毫秒数
-        order.setOrderReference("ORD" + System.currentTimeMillis());
+    public Result<TransactionOrderPO> save(@RequestBody TransactionOrderPO order) {
+        // 如果前端没有传orderReference，自动生成
+        if (order.getOrderReference() == null || order.getOrderReference().isEmpty()) {
+            order.setOrderReference("ORD" + System.currentTimeMillis());
+        }
 
-        // 2. 设置订单初始状态：0 (待支付)
+        // 设置订单初始状态：0 (待支付)
         order.setTransactionState(0);
 
-        // 3. 补全创建时间和更新时间
+        // 补全创建时间和更新时间
         order.setCreateTime(LocalDateTime.now());
         order.setUpdateTime(LocalDateTime.now());
 
-        // 4. 打印日志方便调试
-        System.out.println("收到订单：买家ID=" + order.getBuyerId() + ", 车ID=" + order.getCarId());
+        System.out.println("收到订单：买家ID=" + order.getBuyerId() + ", 车ID=" + order.getCarId() + ", 编号=" + order.getOrderReference());
 
-        return Result.success(transactionOrderService.save(order));
+        // 保存，MyBatis-Plus 会自动填充自增ID到order对象
+        transactionOrderService.save(order);
+        return Result.success(order);
     }
 
     /**
@@ -67,7 +83,7 @@ public class TransactionOrderController {
      */
     @PutMapping
     public Result<Boolean> update(@RequestBody TransactionOrderPO order) {
-        order.setUpdateTime(LocalDateTime.now()); // 每次修改同步更新时间
+        order.setUpdateTime(LocalDateTime.now());
         return Result.success(transactionOrderService.updateById(order));
     }
 

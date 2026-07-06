@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "iconfont3";
+  src: url('iconfont.ttf?t=1783342739470') format('truetype');
+}
+
+.iconfont3 {
+  font-family: "iconfont3" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon3-yanse:before { content: "\ee33"; }
+.icon3-qiyou:before { content: "\e628"; }
+.icon3-kong:before { content: "\e708"; }
+.icon3-dianhua:before { content: "\e842"; }

@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "iconfont2";
+  src: url('iconfont.ttf?t=1783342296056') format('truetype');
+}
+
+.iconfont2 {
+  font-family: "iconfont2" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon2-liebiao:before { content: "\344a"; }
+.icon2-lichengbiao:before { content: "\e6b5"; }
+.icon2-xinzeng:before { content: "\e66e"; }
+.icon2-canshu:before { content: "\e655"; }
+.icon2-baocun:before { content: "\ec09"; }
+.icon2-dingdan:before { content: "\e60c"; }
+.icon2-fangchaguji:before { content: "\e64f"; }
+.icon2-calendar-full:before { content: "\e9ab"; }

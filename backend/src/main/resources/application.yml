@@ -6,7 +6,9 @@ spring:
     password: 7622661
 
   jackson:
-    property-naming-strategy: SNAKE_CASE
+    # 关闭SNAKE_CASE策略，让前后端统一使用camelCase（小驼峰）
+    # SNAKE_CASE 会导致前端发送的 realName 无法映射到 UserPO.realName (需要 real_name)
+    # property-naming-strategy: SNAKE_CASE
 
 mybatis-plus:
   global-config:

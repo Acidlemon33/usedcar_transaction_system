@@ -40,4 +40,7 @@ public class UserPO implements Serializable {
 
     /** 状态，1表示正常，0表示封停 */
     private Integer state;
+
+    /** 账户余额 */
+    private java.math.BigDecimal balance;
 }

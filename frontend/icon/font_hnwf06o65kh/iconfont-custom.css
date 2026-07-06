@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "iconfont4";
+  src: url('iconfont.ttf?t=1783344114034') format('truetype');
+}
+
+.iconfont4 {
+  font-family: "iconfont4" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon4-shuoming:before { content: "\e605"; }

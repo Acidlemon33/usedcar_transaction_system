@@ -14,7 +14,9 @@
 
     <properties>
         <java.version>17</java.version>
-        <!-- 适配 Spring Boot 3 的 MyBatis Plus 版本 -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
     </properties>
 

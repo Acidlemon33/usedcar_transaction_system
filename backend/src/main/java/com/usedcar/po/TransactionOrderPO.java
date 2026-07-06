@@ -51,6 +51,4 @@ public class TransactionOrderPO implements Serializable {
     /** 预测偏差，预测价格与成交价格的偏差率 */
     private BigDecimal predictMatch;
 
-    public void setTransactionStatus(int i) {
-    }
 }

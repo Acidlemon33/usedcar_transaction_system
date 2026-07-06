@@ -42,4 +42,12 @@ desktop.ini
 # --- 其它 ---
 HELP.md
 /index.html
-frontend/
+
+# 前端依赖
+frontend/node_modules/
+frontend/dist/
+# Python虚拟环境
+venv/
+ml_pred/
+# Java编译产物
+target/

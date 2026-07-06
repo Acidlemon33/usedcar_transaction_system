@@ -7,10 +7,10 @@ INSERT INTO `user` (user_id, username, password, real_name, phone, credit_score,
 (3, 'wangwu', 'e10adc3949ba59abbe56e057f20f883e', '王五', '13755556666', 100, 1, 1000000.0);
 
 -- 2. 录入车辆信息
-INSERT INTO car_info (brand, model, car_year, mileage, sell_price, accident, int_color, ext_color) VALUES 
-('BMW', 'X5', '2021-05-20', 3201000, 450000.0, 0, 'Black', 'White'),
-('Toyota', 'Camry', '2019-10-12', 58000, 150000.0, 0, 'Beige', 'Black'),
-('Tesla', 'Model 3', '2022-01-15', 120000, 210000.0, 1, 'White', 'Blue');
+INSERT INTO car_info (brand, model, car_year, mileage, sell_price, accident, int_color, ext_color, seller_id) VALUES 
+('BMW', 'X5', '2021-05-20', 3201000, 450000.0, 0, 'Black', 'White', 1),
+('Toyota', 'Camry', '2019-10-12', 58000, 150000.0, 0, 'Beige', 'Black', 2),
+('Tesla', 'Model 3', '2022-01-15', 120000, 210000.0, 1, 'White', 'Blue', 1);
 
 -- 3. 录入管理员
 INSERT INTO admin (admin_name, password, state, mail) VALUES 

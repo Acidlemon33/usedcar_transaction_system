@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "iconfont5";
+  src: url('iconfont.ttf?t=1783348369888') format('truetype');
+}
+
+.iconfont5 {
+  font-family: "iconfont5" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon5-yonghu:before { content: "\e788"; }
+.icon5-mima:before { content: "\e646"; }
+.icon5-shoujihao:before { content: "\e60f"; }
+.icon5-zuoxixingming:before { content: "\e672"; }

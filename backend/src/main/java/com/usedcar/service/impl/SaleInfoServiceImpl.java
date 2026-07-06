@@ -8,11 +8,18 @@ import com.usedcar.repository.SaleInfoRepository;
 import com.usedcar.service.SaleInfoService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SaleInfoServiceImpl extends ServiceImpl<SaleInfoRepository, SaleInfoPO> implements SaleInfoService {
     @Override
     public IPage<SaleInfoPO> paginQuery(SaleInfoPO saleInfo, Long pageNum, Long pageSize) {
         Page<SaleInfoPO> page = new Page<>(pageNum, pageSize);
         return this.page(page, null);
+    }
+
+    @Override
+    public List<SaleInfoPO> getBySalerId(Long salerId) {
+        return lambdaQuery().eq(SaleInfoPO::getSalerId, salerId).list();
     }
 }

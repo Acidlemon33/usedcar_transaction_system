@@ -40,8 +40,13 @@ CREATE TABLE car_info(
     `fuel_type` VARCHAR(64) COMMENT '燃油类型',
     `engine_hp` VARCHAR(64) COMMENT '引擎马力',
     `engine_liters` VARCHAR(64) COMMENT '引擎排量',
-    PRIMARY KEY (`car_id`)
+    PRIMARY KEY (`car_id`),
+    FOREIGN KEY fk_car_seller_user (`seller_id`) REFERENCES `user`(`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='二手车信息';
+
+ALTER TABLE car_info ADD COLUMN seller_id BIGINT COMMENT '卖家用户ID';
+ALTER TABLE car_info ADD CONSTRAINT fk_car_seller_user FOREIGN KEY (seller_id) REFERENCES user(user_id) ON DELETE SET NULL ON UPDATE CASCADE;
+
 
 ALTER TABLE car_info MODIFY create_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP;
 ALTER TABLE car_info MODIFY update_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;

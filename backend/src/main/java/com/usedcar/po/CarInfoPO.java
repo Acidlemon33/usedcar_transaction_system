@@ -62,4 +62,7 @@ public class CarInfoPO implements Serializable {
 
     /** 引擎气缸数 */
     private String engineLiters;
+
+    /** 卖家用户ID，关联 user(user_id) */
+    private Long sellerId;
 }

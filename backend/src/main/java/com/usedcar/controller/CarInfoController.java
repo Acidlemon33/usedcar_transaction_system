@@ -23,9 +23,13 @@ public class CarInfoController {
     @GetMapping("/page")
     public Result<IPage<CarInfoPO>> page(
             CarInfoPO carInfo,
+            @RequestParam(required = false) Long sellerId,
             @RequestParam(defaultValue = "1") Long pageNum,
             @RequestParam(defaultValue = "10") Long pageSize
     ) {
+        if (sellerId != null) {
+            carInfo.setSellerId(sellerId);
+        }
         return Result.success(carInfoService.paginQuery(carInfo, pageNum, pageSize));
     }
 
