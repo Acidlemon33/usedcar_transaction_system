@@ -42,6 +42,7 @@ desktop.ini
 # --- 其它 ---
 HELP.md
 /index.html
+ml_model/*.pkl
 
 # 前端依赖
 frontend/node_modules/
