@@ -1,0 +1,44 @@
+# --- 构建工具 ---
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.restoreBackup
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# --- IDE 配置文件 ---
+.idea/
+*.iws
+*.iml
+*.ipr
+.classpath
+.project
+.settings/
+.factorypath
+.springBeans
+.sts4-cache
+.vscode/
+.apt_generated
+
+# --- 编译文件与日志 ---
+*.class
+*.log
+out/
+build/
+
+# --- 操作系统临时文件 ---
+.DS_Store
+.DS_Store?
+._*
+Thums.db
+desktop.ini
+
+# --- 其它 ---
+HELP.md
+/index.html
